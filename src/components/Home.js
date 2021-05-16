@@ -6,7 +6,6 @@ import Section from './Section';
 function Home() {
     return (
         <Container>
-            {/* <Section /> */}
             {CarInfo.map((car) => (
                 <Section car={car} key={car.id} />
             ))}

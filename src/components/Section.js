@@ -1,4 +1,5 @@
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
 import Arrow from '../assets/images/down-arrow.svg';
 
@@ -13,15 +14,19 @@ function Section({ car }) {
                 backgroundPosition: 'center',
             }}
         >
-            <ItemText>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </ItemText>
+            <Fade top>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </ItemText>
+            </Fade>
             <Buttons>
-                <ButtonGroup>
-                    <LeftButton>{leftBtnText}</LeftButton>
-                    {rightBtnText && <RightButton>Existing Inventory</RightButton>}
-                </ButtonGroup>
+                <Fade bottom>
+                    <ButtonGroup>
+                        <LeftButton>{leftBtnText}</LeftButton>
+                        {rightBtnText && <RightButton>Existing Inventory</RightButton>}
+                    </ButtonGroup>
+                </Fade>
                 <DownArrow src={Arrow} />
             </Buttons>
         </Wrap>
@@ -31,6 +36,7 @@ function Section({ car }) {
 export default Section;
 
 const Wrap = styled.div`
+    z-index: -1;
     width: 100vw;
     height: 100vh;
     display: flex;
